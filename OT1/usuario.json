@@ -1,0 +1,13 @@
+{
+  "nome": "Maria Silva",
+  "idade": 30,
+  "email": "maria.silva@example.com",
+  "ativo": true,
+  "interesses": ["programacao", "leitura", "viagens"],
+  "endereco": {
+    "rua": "Rua das Flores",
+    "numero": "123",
+    "cidade": "Alguma Cidade",
+    "estado": "Algum Estado"
+  }
+}
