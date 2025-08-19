@@ -1,0 +1,20 @@
+{
+  "name": "ot-7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "asyncAwait.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0",
+    "node-fetch": "^2.7.0",
+    "socket.io": "^4.8.1",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}

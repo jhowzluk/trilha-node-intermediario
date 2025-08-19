@@ -1,0 +1,20 @@
+2025-06-07 18:57:57 [INFO]: Iniciando o processo principal da aplicação.
+2025-06-07 18:57:57 [INFO]: Worker Thread iniciado. Aguardando mensagens de progresso...
+2025-06-07 18:57:57 [INFO]: [Worker 9240] Iniciando tarefa pesada...
+2025-06-07 18:57:57 [INFO]: [Worker 9240] Progresso da tarefa: 10%
+2025-06-07 18:57:58 [INFO]: [Worker 9240] Progresso da tarefa: 20%
+2025-06-07 18:57:58 [INFO]: [Worker 9240] Progresso da tarefa: 30%
+2025-06-07 18:57:58 [INFO]: [Worker 9240] Progresso da tarefa: 40%
+2025-06-07 18:57:58 [INFO]: [Worker 9240] Progresso da tarefa: 50%
+2025-06-07 18:57:58 [INFO]: [Worker 9240] Progresso da tarefa: 60%
+2025-06-07 18:57:59 [INFO]: [Worker 9240] Progresso da tarefa: 70%
+2025-06-07 18:57:59 [INFO]: [Worker 9240] Progresso da tarefa: 80%
+2025-06-07 18:57:59 [INFO]: [Worker 9240] Progresso da tarefa: 90%
+2025-06-07 18:57:59 [INFO]: [Worker 9240] Tarefa concluída. Resultado final: 499999999067109000
+2025-06-07 18:57:59 [INFO]: [Worker 9240] Tarefa pesada concluída em 1.974 segundos.
+2025-06-07 18:57:59 [INFO]: Worker Thread finalizado com sucesso.
+2025-06-07 18:58:02 [INFO]: Processo principal está ativo e não bloqueado.
+2025-06-07 18:58:07 [INFO]: Processo principal está ativo e não bloqueado.
+2025-06-07 18:58:12 [INFO]: Processo principal está ativo e não bloqueado.
+2025-06-07 18:58:17 [INFO]: Processo principal está ativo e não bloqueado.
+2025-06-07 18:58:22 [INFO]: Processo principal está ativo e não bloqueado.

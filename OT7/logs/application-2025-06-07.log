@@ -1,0 +1,33 @@
+2025-06-07 18:46:45 [INFO]: Esta é uma mensagem informativa.
+2025-06-07 18:46:45 [WARN]: Esta é uma mensagem de aviso.
+2025-06-07 18:46:45 [ERROR]: Esta é uma mensagem de erro.
+2025-06-07 18:46:45 [ERROR]: Outro erro: Falha ao conectar ao banco de dados.
+2025-06-07 18:46:47 [INFO]: Aplicação em execução. Contador: 0
+2025-06-07 18:46:49 [INFO]: Aplicação em execução. Contador: 1
+2025-06-07 18:46:51 [INFO]: Aplicação em execução. Contador: 2
+2025-06-07 18:46:53 [INFO]: Aplicação em execução. Contador: 3
+2025-06-07 18:46:55 [INFO]: Aplicação em execução. Contador: 4
+2025-06-07 18:46:55 [WARN]: Aviso: Contador atingiu 5.
+2025-06-07 18:46:57 [INFO]: Aplicação em execução. Contador: 5
+2025-06-07 18:46:59 [INFO]: Aplicação em execução. Contador: 6
+2025-06-07 18:47:01 [INFO]: Aplicação em execução. Contador: 7
+2025-06-07 18:47:03 [INFO]: Aplicação em execução. Contador: 8
+2025-06-07 18:47:05 [INFO]: Aplicação em execução. Contador: 9
+2025-06-07 18:47:05 [WARN]: Aviso: Contador atingiu 10.
+2025-06-07 18:47:05 [ERROR]: Erro crítico simulado: Contador atingiu 10.
+2025-06-07 18:47:07 [INFO]: Aplicação em execução. Contador: 10
+2025-06-07 18:47:09 [INFO]: Aplicação em execução. Contador: 11
+2025-06-07 18:47:11 [INFO]: Aplicação em execução. Contador: 12
+2025-06-07 18:47:13 [INFO]: Aplicação em execução. Contador: 13
+2025-06-07 18:47:15 [INFO]: Aplicação em execução. Contador: 14
+2025-06-07 18:47:15 [WARN]: Aviso: Contador atingiu 15.
+2025-06-07 18:47:17 [INFO]: Aplicação em execução. Contador: 15
+2025-06-07 18:47:19 [INFO]: Aplicação em execução. Contador: 16
+2025-06-07 18:47:21 [INFO]: Aplicação em execução. Contador: 17
+2025-06-07 18:47:23 [INFO]: Aplicação em execução. Contador: 18
+2025-06-07 18:47:25 [INFO]: Aplicação em execução. Contador: 19
+2025-06-07 18:47:25 [WARN]: Aviso: Contador atingiu 20.
+2025-06-07 18:47:25 [ERROR]: Erro crítico simulado: Contador atingiu 20.
+2025-06-07 18:47:27 [INFO]: Aplicação em execução. Contador: 20
+2025-06-07 18:47:29 [INFO]: Aplicação em execução. Contador: 21
+2025-06-07 18:47:31 [INFO]: Aplicação em execução. Contador: 22
