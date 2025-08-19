@@ -1,0 +1,29 @@
+<head>
+    <style>
+        nav a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<header>
+    <h1>Sistema de Usuários</h1>
+    <nav>
+        <a href="/">Início</a> |
+        <a href="/usuarios">Usuários |</a>
+        <a href="/form">Formulário</a>
+    </nav>
+
+    <% if (usuarios && usuarios.length> 0) { %>
+        <div style="margin-top: 10px;">
+            <strong>Usuários:</strong>
+            <ul>
+                <% usuarios.forEach(u=> { %>
+                    <li>
+                        <%= u.nome %>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+        <% } %>
+
+</header>
