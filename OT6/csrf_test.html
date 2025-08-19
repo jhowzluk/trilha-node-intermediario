@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+       
+    <meta charset="UTF-8">
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teste de Proteção CSRF</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        .response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+        <h1>Teste de Proteção CSRF</h1>
+
+        <h2>1. Login (Necessário para testar rotas protegidas)</h2>
+        <input type="text" id="username" placeholder="Username" value="testeuser">
+        <input type="password" id="password" placeholder="Password" value="1234">
+        <button onclick="login()">Login</button>
+        <div id="loginResponse" class="response"></div>
+
+        <h2>2. Obter CSRF Token</h2>
+        <button onclick="getCsrfToken()">Obter Token</button>
+        <div id="csrfTokenDisplay" class="response"></div>
+
+        <h2>3. Simular Ataque CSRF (Requisição sem Token)</h2>
+        <p>Ataque simulado de um site malicioso. Tenta forçar uma transferência.</p>
+        <button onclick="simulateCsrfAttack()">Atacar!</button>
+        <div id="attackResponse" class="response"></div>
+
+        <h2>4. Requisição Legítima (Com Token CSRF)</h2>
+        <input type="text" id="comentario" placeholder="Seu Comentário" value="Isso é um comentário legítimo.">
+        <button onclick="makeLegitRequest()">Enviar Comentário</button>
+        <div id="legitResponse" class="response"></div>
+
+       
+    <script>
+        // ALTERADO PARA USAR 127.0.0.1
+        const API_URL = 'http://127.0.0.1:3000';
+        let csrfToken = ''; // Variável para armazenar o token CSRF
+
+        // Função auxiliar para exibir respostas
+        function displayResponse(elementId, message, isError = false) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = isError ? 'response error' : 'response success';
+        }
+
+        // --- Login ---
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await response.json();
+                displayResponse('loginResponse', `Login: ${data.message}`);
+            } catch (error) {
+                displayResponse('loginResponse', `Erro no login: ${error.message}`, true);
+            }
+        }
+
+        // --- Obter CSRF Token ---
+        async function getCsrfToken() {
+            try {
+                const response = await fetch(`${API_URL}/csrf`, { // Rota /csrf do seu servidor
+                    method: 'GET',
+                    credentials: 'include' // Importante para enviar cookies de sessão
+                });
+                const data = await response.json();
+                csrfToken = data.csrfToken;
+                displayResponse('csrfTokenDisplay', `CSRF Token obtido: ${csrfToken}`);
+            } catch (error) {
+                displayResponse('csrfTokenDisplay', `Erro ao obter CSRF Token: ${error.message}`, true);
+            }
+        }
+
+        // --- Simular Ataque CSRF (sem token) ---
+        async function simulateCsrfAttack() {
+            try {
+                // Esta requisição NÃO inclui o token CSRF
+                const comentario = "Comentário malicioso de ataque!";
+                const response = await fetch(`${API_URL}/comentario`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ comentario: comentario }),
+                    credentials: 'include' // Importante para enviar cookies de sessão
+                });
+                const data = await response.json();
+                displayResponse('attackResponse', `Ataque: ${data.message}`, !response.ok);
+            } catch (error) {
+                displayResponse('attackResponse', `Erro no ataque: ${error.message}`, true);
+            }
+        }
+
+        // --- Requisição Legítima (com token) ---
+        async function makeLegitRequest() {
+            if (!csrfToken) {
+                displayResponse('legitResponse', 'Por favor, obtenha o CSRF Token primeiro.', true);
+                return;
+            }
+            const comentario = document.getElementById('comentario').value;
+
+            try {
+                const response = await fetch(`${API_URL}/comentario`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': csrfToken // O token é enviado no cabeçalho
+                    },
+                    credentials: 'include' // Importante para enviar cookies de sessão
+                });
+                const data = await response.json();
+                displayResponse('legitResponse', `Legítimo: ${data.message}`, !response.ok);
+            } catch (error) {
+                displayResponse('legitResponse', `Erro na requisição legítima: ${error.message}`, true);
+            }
+        }
+    </script>
+</body>
+
+</html>
