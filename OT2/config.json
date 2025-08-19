@@ -1,0 +1,20 @@
+{
+  "appName": "MinhaAppNode",
+  "version": "1.0.0",
+  "environment": "development",
+  "settings": {
+    "port": 3000,
+    "debugMode": true,
+    "database": {
+      "host": "localhost",
+      "user": "admin",
+      "password": "123"
+    }
+  },
+  "isActive": true,
+  "features": [
+    "auth",
+    "logging",
+    "notifications"
+  ]
+}
